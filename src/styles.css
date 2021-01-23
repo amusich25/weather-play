@@ -1,5 +1,5 @@
 body {
-  padding-top: 20px;
+  padding-top: 30px;
   font-family: "Lato", sans-serif;
 }
 
@@ -22,10 +22,6 @@ li {
 i {
   color: #79a3b1;
   font-size: 25px;
-}
-
-h6 {
-  padding-top: 10px;
 }
 
 .weatherapp {
@@ -51,6 +47,7 @@ h6 {
 
 #current-weather-icon {
   font-size: 65px;
+  padding-top: 10px;
 }
 
 .current-temperature strong {
@@ -63,13 +60,9 @@ h6 {
   top: -20px;
 }
 
-#current-weather-icon {
-  padding-top: 20px;
-}
-
 #info-breakdown {
   padding-left: 40px;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .changeloc {
