@@ -1,6 +1,11 @@
-function formatDate(date) {
-    let numberDate = now.getDate();
-      let hours = now.getHours();
+function formatDay(date) {
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      let day = days[now.getDay()];
+      return `${day}`
+};
+
+function formatTime(date) {
+  let hours = now.getHours();
       if (hours < 10){
           hours = `0${hours}`
       }
@@ -8,10 +13,14 @@ function formatDate(date) {
       if (minutes < 10) {
           minutes = `0${minutes}`
       }
-      let year = now.getFullYear();
 
-      let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-      let day = days[now.getDay()];
+      return `${hours}:${minutes}`
+};
+
+function formatDate(date) {
+    let numberDate = now.getDate();
+      
+      let year = now.getFullYear();
 
       let months = [
         "Jan",
@@ -29,12 +38,16 @@ function formatDate(date) {
       ];
       let month = months[now.getMonth()];
 
-      return `${day} ${month} ${numberDate}, ${year}, ${hours}:${minutes}`;
+      return `${month} ${numberDate}, ${year}`;
 };
 
+let dayElement = document.querySelector("#day");
 let dateElement = document.querySelector("#date");
+let timeElement = document.querySelector("#time");
 let now = new Date();
+dayElement.innerHTML = formatDay(now);
 dateElement.innerHTML = formatDate(now);
+timeElement.innerHTML = formatTime(now);
 
 
 let cityName = "Hollister";
