@@ -1,0 +1,68 @@
+body {
+  padding-top: 30px;
+  font-family: "Lato", sans-serif;
+}
+h1 {
+  font-size: 30px;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  padding-left: 20px;
+}
+
+i {
+  color: #79a3b1;
+  font-size: 25px;
+}
+
+h6 {
+  padding-top: 10px;
+}
+
+.weatherapp {
+  background-color: #fcf8ec;
+  border: 1px solid #dfe1e5;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+#current-weather-icon {
+  font-size: 75px;
+  padding-top: 10px;
+}
+
+#info-breakdown {
+  padding-top: 10px;
+}
+
+.subcard {
+  background-color: #d0e8f2;
+}
+
+.changeloc {
+  border-radius: 5px;
+  background-color: #456268;
+  color: #fcf8ec;
+  border: 10px;
+  box-shadow: 1px 1px 2px black;
+  border-color: #456268;
+  margin-left: 5px;
+}
+.locbutton {
+  border-radius: 5px;
+  background-color: #456268;
+  color: #fcf8ec;
+  border: 10px;
+  box-shadow: 1px 1px 2px black;
+  border-color: #456268;
+  margin-left: 5px;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/2535654074.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Weather🌤</title>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
+</head>
+  <body>
+    <div class="container">
+        <div class="weatherapp">
+      <div class="row">
+          <div class="col-3">
+            <h1 id= "city">My Location</h1>
+            <ul>
+              <li id= "day">
+                Thursday
+              </li>
+              <li id="date">January 1, 2021</li>
+              <li id="time">6:00 am</li>
+            </ul>
+          </div>
+        <div class="col-3">
+            <i class="fas fa-cloud-sun" id= "current-weather-icon">
+            </i>
+              100 °F | °C
+        </div>
+        <div class="col-6">
+          <div id ="info-breakdown">
+          <p>
+            Pressure: <span id = "pressure">1</span> <br />
+            Humidity: <span id = "humidity"> 92</span>%<br />
+            Wind Speed: <span id = "wind">2 </span> mph <br />
+          </p>
+          <form id="change-location">
+  <div>
+    <label for="location">Change Location: </label>
+    <input type="search" id="location" name="name" class="type"
+           placeholder="Enter Location"
+           size="30">
+           <button class = "changeloc" id = "changloc">Search</button>
+           <button class = "locbutton" id = "locbutton">Current Location</button>
+  </div>
+      </form>
+    </div>
+        </div>
+      </div>
+    
+      <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-2">
+          <div class="card text-center w-100" style="width: 8rem;">
+            <div class="card-body subcard">
+              <h5 class="card-title">Sat</h5>
+              <i class="fas fa-cloud-sun"></i>
+              <h6 class="card-subtitle mb-2 text-muted"><strong>64° </strong>41°</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card text-center w-100" style="width: 8rem;">
+            <div class="card-body subcard">
+              <h5 class="card-title">Sun</h5>
+              <i class="fas fa-cloud-sun-rain"></i>
+              <h6 class="card-subtitle mb-2 text-muted"><strong>64° </strong>41°</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card text-center w-100" style="width: 8rem;">
+            <div class="card-body subcard">
+              <h5 class="card-title">Mon</h5>
+              <i class="fas fa-sun"></i>
+              <h6 class="card-subtitle mb-2 text-muted"><strong>64° </strong>41°</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card text-center w-100" style="width: 8rem;">
+            <div class="card-body subcard">
+              <h5 class="card-title">Tues</h5>
+              <i class="fas fa-sun"></i>
+              <h6 class="card-subtitle mb-2 text-muted"><strong>64° </strong>41°</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card text-center w-100">
+            <div class="card-body subcard">
+              <h5 class="card-title">Wed</h5>
+              <i class="fas fa-cloud-sun"></i>
+              <h6 class="card-subtitle mb-2 text-muted"><strong>64° </strong>41°</h6>
+            </div>
+          </div>
+        </div>
+    </div>
+      </div>
+    </div>
+</div>
+</div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
