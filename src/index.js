@@ -1,6 +1,7 @@
 function formatDay(date) {
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-      let day = days[now.getDay()];
+  let now = new Date();    
+  let day = days[now.getDay()];
       return `${day}`
 };
 
@@ -16,6 +17,7 @@ function formatTime(date) {
 };
 
 function formatDate(date) {
+  let now = new Date();
     let numberDate = now.getDate();
       
       let year = now.getFullYear();
@@ -39,29 +41,17 @@ function formatDate(date) {
       return `${month} ${numberDate}, ${year}`;
 };
 
-let dayElement = document.querySelector("#day");
-let dateElement = document.querySelector("#date");
-let timeElement = document.querySelector("#time");
-let now = new Date();
-dayElement.innerHTML = formatDay(now);
-dateElement.innerHTML = formatDate(now);
-timeElement.innerHTML = formatTime(now);
-
-
-let cityName = "Hollister";
-let apiKey = "8fb476c298015405b2d8169c9a04e3da";
-let units = "imperial";
-let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
-let apiUrl = `${apiEndPoint}?q=${cityName}&appid=${apiKey}&units=${units}`;
 
 function showTemp(response) {
-  console.log(response.data);
+  let dayElement = document.querySelector("#day");
+  let dateElement = document.querySelector("#date");
+  let timeElement = document.querySelector("#time");
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#currenttemp");
   let locationElement = document.querySelector("#city");
   let iconElement = document.querySelector("#current-weather-icon");
   temperatureElement.innerHTML = `${temperature}`;
-  locationElement.innerHTML = `${cityName}`;
+  locationElement.innerHTML = response.data.name;
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
@@ -70,34 +60,28 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  let now = new Date();
+  dayElement.innerHTML = formatDay(now);
+  dateElement.innerHTML = formatDate(now);
+  timeElement.innerHTML = formatTime(now);
 }
 
+function search(city) {
+let apiKey = "8fb476c298015405b2d8169c9a04e3da";
+let units = "imperial";
+let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
+let apiUrl = `${apiEndPoint}?q=${city}&appid=${apiKey}&units=${units}`;
 axios.get(`${apiUrl}`).then(showTemp);
-
-function displayTemp(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#currenttemp").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#pressure").innerHTML = response.data.main.pressure;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
 }
       
-function getCity(event) {
+function handleSubmit(event) {
    event.preventDefault();
-          let location = document.querySelector("#location");
-          let city = document.querySelector("#city");
-          city.innerHTML = `${location}`;
-          let apiKey = "8fb476c298015405b2d8169c9a04e3da";
-          let units = "imperial";
-          let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
-          let apiUrl = `${apiEndPoint}?q=${location.value}&appid=${apiKey}&units=${units}`;
-          axios.get(apiUrl).then(displayTemp);
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
 }
       
-      let enterLocation = document.querySelector("#change-location");
-      enterLocation.addEventListener("submit", getCity);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
   document.querySelector("#city").innerHTML = response.data.name;
@@ -125,4 +109,6 @@ function retrievePosition(position) {
 
 let currentLocation = document.querySelector("#locbutton");
 currentLocation.addEventListener("click", getCurrentlocation);
+
+search("Hollister");
 
