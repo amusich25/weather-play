@@ -1,7 +1,8 @@
 body {
-  padding-top: 30px;
+  padding-top: 20px;
   font-family: "Lato", sans-serif;
 }
+
 h1 {
   font-size: 30px;
   margin-bottom: 0;
@@ -16,13 +17,11 @@ ul {
 
 li {
   list-style: none;
-  padding-left: 20px;
 }
 
 i {
   color: #79a3b1;
   font-size: 25px;
-  padding-top: 20px;
 }
 
 h6 {
@@ -34,6 +33,7 @@ h6 {
   border: 1px solid #dfe1e5;
   margin: 0 auto;
   border-radius: 5px;
+  padding-bottom: 10px;
 }
 
 .search-bar {
@@ -43,6 +43,10 @@ h6 {
 .current-temperature {
   padding-left: 100px;
   padding-top: -20px;
+}
+
+.current-date {
+  padding-left: 20px;
 }
 
 #current-weather-icon {
@@ -59,13 +63,13 @@ h6 {
   top: -20px;
 }
 
-#info-breakdown {
-  padding-left: 40px;
+#current-weather-icon {
   padding-top: 20px;
 }
 
-.subcard {
-  background-color: #d0e8f2;
+#info-breakdown {
+  padding-left: 40px;
+  padding-top: 20px;
 }
 
 .changeloc {
@@ -77,6 +81,7 @@ h6 {
   border-color: #456268;
   margin-left: 5px;
 }
+
 .locbutton {
   border-radius: 5px;
   background-color: #456268;
@@ -85,4 +90,19 @@ h6 {
   box-shadow: 1px 1px 2px black;
   border-color: #456268;
   margin-top: 5px;
+}
+
+.day-card {
+  padding: 10px 30px;
+  border: 1px solid #dfe1e5;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.highs {
+  font-weight: bolder;
+}
+
+.lows {
+  color: #0000006e;
 }
