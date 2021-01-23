@@ -55,14 +55,21 @@ let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
 let apiUrl = `${apiEndPoint}?q=${cityName}&appid=${apiKey}&units=${units}`;
 
 function showTemp(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#currenttemp");
   let locationElement = document.querySelector("#city");
+  let iconElement = document.querySelector("#current-weather-icon");
   temperatureElement.innerHTML = `${temperature}`;
   locationElement.innerHTML = `${cityName}`;
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 axios.get(`${apiUrl}`).then(showTemp);
