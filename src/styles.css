@@ -1,6 +1,7 @@
 body {
   padding-top: 30px;
   font-family: "Lato", sans-serif;
+  color: #eff7e1;
 }
 
 h1 {
@@ -25,7 +26,7 @@ i {
 }
 
 .weatherapp {
-  background-color: #fcf8ec;
+  background-color: #214151;
   border: 1px solid #dfe1e5;
   margin: 0 auto;
   border-radius: 5px;
@@ -67,21 +68,21 @@ i {
 
 .changeloc {
   border-radius: 5px;
-  background-color: #456268;
-  color: #fcf8ec;
+  background-color: #f8dc81;
+  color: #214151;
   border: 10px;
   box-shadow: 1px 1px 2px black;
-  border-color: #456268;
+  border-color: #f8dc81;
   margin-left: 5px;
 }
 
 .locbutton {
   border-radius: 5px;
-  background-color: #456268;
-  color: #fcf8ec;
+  background-color: #f8dc81;
+  color: #214151;
   border: 10px;
   box-shadow: 1px 1px 2px black;
-  border-color: #456268;
+  border-color: #f8dc81;
   margin-top: 5px;
 }
 
