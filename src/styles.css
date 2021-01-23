@@ -22,6 +22,7 @@ li {
 i {
   color: #79a3b1;
   font-size: 25px;
+  padding-top: 20px;
 }
 
 h6 {
@@ -36,8 +37,18 @@ h6 {
 }
 
 #current-weather-icon {
-  font-size: 75px;
-  padding-top: 10px;
+  font-size: 65px;
+  padding-top: 20px;
+}
+
+.current-temperature strong {
+  font-size: 45px;
+  font-weight: 100;
+}
+
+.current-temperature .units {
+  position: relative;
+  top: -20px;
 }
 
 #info-breakdown {
