@@ -36,9 +36,17 @@ h6 {
   border-radius: 5px;
 }
 
+.search-bar {
+  padding-top: 20px;
+}
+
+.current-temperature {
+  padding-left: 100px;
+  padding-top: -20px;
+}
+
 #current-weather-icon {
   font-size: 65px;
-  padding-top: 20px;
 }
 
 .current-temperature strong {
@@ -52,7 +60,8 @@ h6 {
 }
 
 #info-breakdown {
-  padding-top: 10px;
+  padding-left: 40px;
+  padding-top: 20px;
 }
 
 .subcard {
@@ -75,5 +84,5 @@ h6 {
   border: 10px;
   box-shadow: 1px 1px 2px black;
   border-color: #456268;
-  margin-left: 5px;
+  margin-top: 5px;
 }

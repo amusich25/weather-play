@@ -23,7 +23,7 @@
     <div class="container">
         <div class="weatherapp">
       <div class="row">
-          <div class="col-3">
+          <div class="col-6">
             <h1 id= "city">My Location</h1>
             <ul>
               <li id= "day">
@@ -33,7 +33,19 @@
               <li id="time">6:00 am</li>
             </ul>
           </div>
-        <div class="col-3">
+          <div class="col-6">
+          <form id="change-location">
+            <div class="search-bar">
+             <input type="search" id="ChangeLocation" name="name" class="type"
+           placeholder="Enter New Location"
+           size="30">
+           <button class = "changeloc" id = "changloc">Search</button>
+           <button class = "locbutton" id = "locbutton">Current Location</button>
+            </div>
+      </form>
+    </div>
+    <div class="row">
+        <div class="col-6">
           <div class="clearfix current-temperature">
             <i class="fas fa-cloud-sun float-left" 
             id= "current-weather-icon">
@@ -49,16 +61,6 @@
             Humidity: <span id = "humidity"> 92</span>%<br />
             Wind Speed: <span id = "wind">2 </span> mph <br />
           </p>
-          <form id="change-location">
-  <div>
-    <label for="location">Change Location: </label>
-    <input type="search" id="location" name="name" class="type"
-           placeholder="Enter Location"
-           size="30">
-           <button class = "changeloc" id = "changloc">Search</button>
-           <button class = "locbutton" id = "locbutton">Current Location</button>
-  </div>
-      </form>
     </div>
         </div>
       </div>
