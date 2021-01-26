@@ -100,3 +100,13 @@ i {
 .lows {
   color: #0000006e;
 }
+
+.current-temperature .active {
+  color: #dfe1e5;
+  cursor: default;
+  text-decoration: none;
+}
+
+.current-temperature .active:hover {
+  text-decoration: none;
+}

@@ -50,6 +50,9 @@ function showTemp(response) {
   let temperatureElement = document.querySelector("#currenttemp");
   let locationElement = document.querySelector("#city");
   let iconElement = document.querySelector("#current-weather-icon");
+ 
+  fahrenheitTemperature = response.data.main.temp;
+ 
   temperatureElement.innerHTML = `${temperature}`;
   locationElement.innerHTML = response.data.name;
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
@@ -107,8 +110,32 @@ function retrievePosition(position) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#currenttemp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let celsiusTemperature = (fahrenheitTemperature - 32) * 5/9;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
 let currentLocation = document.querySelector("#locbutton");
 currentLocation.addEventListener("click", getCurrentlocation);
 
-search("Hollister");
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#currenttemp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
+let fahrenheitTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Hollister");
