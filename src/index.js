@@ -5,10 +5,11 @@ function formatDay(date) {
       return `${day}`
 };
 
-function formatTime(date) {
-   var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? 'pm' : 'am';
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
     minutes = minutes < 10 ? '0'+minutes : minutes;
@@ -41,7 +42,6 @@ function formatDate(date) {
       return `${month} ${numberDate}, ${year}`;
 };
 
-
 function showTemp(response) {
   let dayElement = document.querySelector("#day");
   let dateElement = document.querySelector("#date");
@@ -66,7 +66,43 @@ function showTemp(response) {
   let now = new Date();
   dayElement.innerHTML = formatDay(now);
   dateElement.innerHTML = formatDate(now);
-  timeElement.innerHTML = formatTime(now);
+  timeElement.innerHTML = formatHours(now);
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="col-2 day-card">
+              <ul class="text-center">
+                <li class="day">
+                 ${formatHours(forecast.dt * 1000)}
+                </li>
+                <li>
+                  <img
+                    src="http://openweathermap.org/img/wn/${
+                      forecast.weather[0].icon
+                    }@2x.png"
+                  />
+                  </i>
+                </li>
+                <li >
+                  <span class="highs">
+                  ${Math.round(forecast.main.temp_max)}°
+                  </span>|
+                  <span class="lows">
+                  ${Math.round(forecast.main.temp_min)}°
+                  </span>
+                </li>
+              </ul>
+            </div>
+    `;
+  }
+  console.log(response.data)
 }
 
 function search(city) {
@@ -75,6 +111,9 @@ let units = "imperial";
 let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
 let apiUrl = `${apiEndPoint}?q=${city}&appid=${apiKey}&units=${units}`;
 axios.get(`${apiUrl}`).then(showTemp);
+
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(displayForecast);
 }
       
 function handleSubmit(event) {
