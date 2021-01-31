@@ -110,3 +110,8 @@ i {
 .current-temperature .active:hover {
   text-decoration: none;
 }
+
+#opensource {
+  color: #214151;
+  padding-left: 30px;
+}
