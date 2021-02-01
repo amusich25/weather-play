@@ -1,6 +1,6 @@
-function formatDay(date) {
+function formatDay(timestamp) {
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  let now = new Date();    
+  let now = new Date(timestamp);    
   let day = days[now.getDay()];
       return `${day}`
 };
@@ -102,7 +102,6 @@ function displayForecast(response) {
             </div>
     `;
   }
-  console.log(response.data)
 }
 
 function search(city) {
@@ -143,9 +142,12 @@ function retrievePosition(position) {
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndPoint}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showTemperature);
+  
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
-      function getCurrentlocation() {
+function getCurrentlocation() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
@@ -177,4 +179,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("Hollister");
+search("New York");
